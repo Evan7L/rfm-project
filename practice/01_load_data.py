@@ -6,15 +6,20 @@
 2. 读进来，打印 shape、列名、dtypes
 3. 打印每列缺失值数量
 4. 打印前 5 行
-
-提示：
-- pd.read_csv / pd.read_excel
-- df.info()
-- df.isna().sum()
 """
 
-# TODO: 在这里写代码
+import pandas as pd
+def load_data():
+    from pathlib import Path
 
+    BASE = Path(__file__).resolve().parent.parent
+    df = pd.read_csv(BASE / "data" / "raw" / "online_retail.csv")
+    print(df.shape)
+    print(df.columns)
+    print(df.dtypes)
+    print(df.isna().sum())
+    print(df.describe())
+    print(df.head())
 
 if __name__ == "__main__":
-    pass
+    load_data()
