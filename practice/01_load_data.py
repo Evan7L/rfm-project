@@ -9,9 +9,8 @@
 """
 
 import pandas as pd
+from pathlib import Path
 def load_data():
-    from pathlib import Path
-
     BASE = Path(__file__).resolve().parent.parent
     df = pd.read_csv(BASE / "data" / "raw" / "online_retail.csv")
     print(df.shape)
